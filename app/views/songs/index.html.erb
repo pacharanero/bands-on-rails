@@ -1,0 +1,50 @@
+<%- model_class = Song -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:video_url) %></th>
+      <th><%= model_class.human_attribute_name(:chart_url) %></th>
+      <th><%= model_class.human_attribute_name(:setlist_id) %></th>
+      <th><%= model_class.human_attribute_name(:performance_notes) %></th>
+      <th><%= model_class.human_attribute_name(:key) %></th>
+      <th><%= model_class.human_attribute_name(:duration) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.id, song_path(song) %></td>
+        <td><%= song.title %></td>
+        <td><%= song.video_url %></td>
+        <td><%= song.chart_url %></td>
+        <td><%= song.setlist_id %></td>
+        <td><%= song.performance_notes %></td>
+        <td><%= song.key %></td>
+        <td><%= song.duration %></td>
+        <td><%=l song.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      song_path(song), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_song_path(song), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      song_path(song),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_song_path,
+            :class => 'btn btn-primary' %>

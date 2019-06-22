@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venue: one
+  set_list: one
+  notes: MyString
+  fee: 1
+  paid: false
+
+two:
+  venue: two
+  set_list: two
+  notes: MyString
+  fee: 1
+  paid: false

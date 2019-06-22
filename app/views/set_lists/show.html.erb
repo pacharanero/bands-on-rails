@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @set_list.title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @set_list.notes %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @set_list.tags %>
+</p>
+
+<%= link_to 'Edit', edit_set_list_path(@set_list) %> |
+<%= link_to 'Back', set_lists_path %>
