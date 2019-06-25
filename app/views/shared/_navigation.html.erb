@@ -1,0 +1,31 @@
+<%= nav_bar fixed: :top, brand: "Bands On Rails", responsive: true do %>
+
+  <%= menu_group do %>
+    <% if current_user %>
+    <%= menu_item "Home", root_path %>
+    <%= menu_divider %>
+    <%= menu_item "Songs", songs_path %>
+    <%= menu_item "Set Lists", set_lists_path %>
+    <%= menu_item "Gigs", gigs_path %>
+    <%= menu_item "Venues", venues_path %>
+    <% end %>
+  <% end %>
+
+  <%= menu_group pull: :right do %>
+    <% if current_user %>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="avatar" src="<%= gravatar_url(current_user) %>">
+          <%= current_user.username %>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+
+
+<% end %>

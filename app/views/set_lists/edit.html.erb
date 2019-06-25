@@ -1,6 +1,5 @@
-<h1>Editing Set List</h1>
-
-<%= render 'form', set_list: @set_list %>
-
-<%= link_to 'Show', @set_list %> |
-<%= link_to 'Back', set_lists_path %>
+<%- model_class = SetList -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  if Rails.env.development? and defined?(Localtower)
-    mount Localtower::Engine, at: "localtower"
-  end
+  devise_for :users
+  root to: 'songs#index'
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :venues
   resources :gigs

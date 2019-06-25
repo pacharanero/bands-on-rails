@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_22_150648) do
+ActiveRecord::Schema.define(version: 2019_06_25_110938) do
 
   create_table "gigs", force: :cascade do |t|
     t.integer "venue_id"
@@ -32,26 +32,40 @@ ActiveRecord::Schema.define(version: 2019_06_22_150648) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "setlist_songs", force: :cascade do |t|
-    t.integer "setlist_id"
-    t.integer "song_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["setlist_id"], name: "index_setlist_songs_on_setlist_id"
-    t.index ["song_id"], name: "index_setlist_songs_on_song_id"
+  create_table "set_lists_songs", id: false, force: :cascade do |t|
+    t.integer "set_list_id", null: false
+    t.integer "song_id", null: false
+    t.index ["set_list_id", "song_id"], name: "index_set_lists_songs_on_set_list_id_and_song_id"
+    t.index ["song_id", "set_list_id"], name: "index_set_lists_songs_on_song_id_and_set_list_id"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string "title"
     t.string "video_url"
     t.string "chart_url"
-    t.integer "setlist_id"
     t.string "performance_notes"
     t.string "key"
     t.string "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["setlist_id"], name: "index_songs_on_setlist_id"
+    t.string "genre"
+    t.string "tags"
+    t.string "singer"
+    t.integer "bpm"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "username", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "venues", force: :cascade do |t|

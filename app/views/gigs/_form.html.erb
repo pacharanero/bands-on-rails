@@ -1,42 +1,62 @@
-<%= form_with(model: gig, local: true) do |form| %>
-  <% if gig.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
+<%= form_for @gig, :html => { :class => "form-horizontal gig" } do |f| %>
 
-      <ul>
-      <% gig.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @gig.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@gig.errors.count, "error") %> prohibited this gig from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @gig.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :venue_id %>
-    <%= form.text_field :venue_id %>
+  <div class="form-group">
+    <%= f.label :venue_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :venue_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:venue_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :set_list_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :set_list_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:set_list_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :notes, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:notes) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fee, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :fee, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:fee) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :paid, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :paid, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:paid) %>
   </div>
 
-  <div class="field">
-    <%= form.label :set_list_id %>
-    <%= form.text_field :set_list_id %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                gigs_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_field :notes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fee %>
-    <%= form.number_field :fee %>
-  </div>
-
-  <div class="field">
-    <%= form.label :paid %>
-    <%= form.check_box :paid %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

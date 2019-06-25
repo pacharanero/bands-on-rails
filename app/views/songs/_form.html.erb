@@ -16,11 +16,32 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, :class => 'control-label col-lg-2' %>
+    <%= f.label 'Title', :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :title, :class => 'form-control' %>
     </div>
     <%=f.error_span(:title) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :key, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :key, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:key) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :singer, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :singer, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:singer) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :bpm, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :bpm, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:bpm) %>
   </div>
   <div class="form-group">
     <%= f.label :video_url, :class => 'control-label col-lg-2' %>
@@ -37,13 +58,6 @@
     <%=f.error_span(:chart_url) %>
   </div>
   <div class="form-group">
-    <%= f.label :setlist_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :setlist_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:setlist_id) %>
-  </div>
-  <div class="form-group">
     <%= f.label :performance_notes, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :performance_notes, :class => 'form-control' %>
@@ -51,18 +65,25 @@
     <%=f.error_span(:performance_notes) %>
   </div>
   <div class="form-group">
-    <%= f.label :key, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :key, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:key) %>
-  </div>
-  <div class="form-group">
     <%= f.label :duration, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :duration, :class => 'form-control' %>
     </div>
     <%=f.error_span(:duration) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :genre, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :genre, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:genre) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tags, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :tags, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tags) %>
   </div>
 
   <div class="form-group">

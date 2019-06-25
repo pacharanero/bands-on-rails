@@ -1,4 +1,4 @@
 class Gig < ApplicationRecord
-  belongs_to :venue
-  belongs_to :set_list
+  has_one :set_list
+  has_one :venue
 end

@@ -1,23 +1,51 @@
-<%- model_class = Song -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%=t '.title', :default => @song.title %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+
+  <dt><strong>Title:</strong></dt>
   <dd><%= @song.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:video_url) %>:</strong></dt>
-  <dd><%= @song.video_url %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:chart_url) %>:</strong></dt>
-  <dd><%= @song.chart_url %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:setlist_id) %>:</strong></dt>
-  <dd><%= @song.setlist_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:performance_notes) %>:</strong></dt>
-  <dd><%= @song.performance_notes %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:key) %>:</strong></dt>
+
+  <dt><strong>Key:</strong></dt>
   <dd><%= @song.key %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:duration) %>:</strong></dt>
+
+  <dt><strong>Singer:</strong></dt>
+  <dd><%= @song.singer %></dd>
+
+  <dt><strong>BPM:</strong></dt>
+  <dd><%= @song.bpm %></dd>
+
+  <dt><strong>Video URL:</strong></dt>
+  <dd><%= link_to truncate(@song.video_url, length:40), @song.video_url %></dd>
+
+  <dt><strong>Chart URL:</strong></dt>
+  <dd><%= link_to truncate(@song.chart_url, length:40), @song.chart_url %></dd>
+
+  <dt><strong>Performance Notes:</strong></dt>
+  <dd><%= @song.performance_notes %></dd>
+
+  <dt><strong>Duration:</strong></dt>
   <dd><%= @song.duration %></dd>
+
+  <dt><strong>Genre:</strong></dt>
+  <dd><%= @song.genre %></dd>
+
+  <dt><strong>Tags:</strong></dt>
+  <dd><%= @song.tags %></dd>
+
+  <dt><strong>Created:</strong></dt>
+  <dd><%= @song.created_at %></dd>
+
+  <dt><strong>Updated:</strong></dt>
+  <dd><%= @song.updated_at %></dd>
+
+  <dt><strong>Set Lists:</strong></dt>
+  <% @song.set_lists.map do |sl| %>
+    <dd>
+    <%= link_to sl.title, set_lists_url(sl.id), :class => "badge badge-light" %>
+    </dd>
+  <% end %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

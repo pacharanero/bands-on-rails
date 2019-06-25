@@ -1,0 +1,50 @@
+<!-- song listing partial -->
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Key</th>
+      <th>Singer</th>
+      <th>BPM</th>
+      <th>Video URL</th>
+      <th>Chart URL</th>
+      <th>Performance Notes</th>
+      <th>Duration</th>
+      <th>Genre</th>
+      <th>Tags</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.title, song_path(song) %></td>
+        <td><%= song.key %></td>
+        <td><%= song.singer %></td>
+        <td><%= song.bpm %></td>
+        <td><%= link_to truncate(song.video_url, length:20), song.video_url, target: :_blank %></td>
+        <td><%= link_to truncate(song.chart_url, length:20), song.chart_url, target: :_blank %></td>
+        <td><%= song.performance_notes %></td>
+        <td><%= song.duration %></td>
+        <td><%= song.genre %></td>
+        <td><%= song.tags %></td>
+        <td><%= song.created_at %></td>
+        <td><%= song.updated_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      song_path(song), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_song_path(song), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      song_path(song),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

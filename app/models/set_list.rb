@@ -1,6 +1,3 @@
 class SetList < ApplicationRecord
-  has_many :songs, through: :setlist_songs
-  has_many :setlist_songs
-
-  belongs_to :venue
+  has_and_belongs_to_many :songs
 end

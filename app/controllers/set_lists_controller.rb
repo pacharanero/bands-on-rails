@@ -10,6 +10,7 @@ class SetListsController < ApplicationController
   # GET /set_lists/1
   # GET /set_lists/1.json
   def show
+    @songs = @set_list.songs
   end
 
   # GET /set_lists/new

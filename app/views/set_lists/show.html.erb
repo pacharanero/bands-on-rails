@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = SetList -%>
+<!-- title -->
+<div class="page-header">
+  <h1><%=t '.title', :default => @set_list.title %></h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @set_list.title %>
-</p>
+<!-- set list information -->
+<dl class="dl-horizontal">
+  <dt><strong>Notes:</strong></dt><dd><%= @set_list.notes %></dd>
+  <dt><strong>Tags:</strong></dt><dd><%= @set_list.tags %></dd>
+</dl>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @set_list.notes %>
-</p>
+<!-- set list songs -->
+<%= render partial: 'songs/song_list' %>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @set_list.tags %>
-</p>
-
-<%= link_to 'Edit', edit_set_list_path(@set_list) %> |
-<%= link_to 'Back', set_lists_path %>
+<!-- set list actions -->
+<%= link_to 'Add a Song', '#', :class => 'btn btn-default' %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              set_lists_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_set_list_path(@set_list), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              set_list_path(@set_list),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+<%= link_to 'Copy to New Set List', '#', :class => 'btn btn-default' %>
