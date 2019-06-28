@@ -9,18 +9,6 @@ An open source band management application in Rails
 ![screenshot](screenshot.png)
 
 ## Worklist (features in active development)
-### Done
-* Basic user management with Devise
-* (Very) rough CSV import for existing band repertoire (command line tool at this stage)
-* Song model
-* SetList model (SetLists `has_many` Songs)
-* Venue model
-* Gig model (gigs have a Venue and a SetList)
-* Google Maps link for Venues
-* Add Songs to a SetList
-* humanize dates in listings
-
-### To Do
 * Copy a SetList to a new one
 * Drag-and-drop to add Songs to a SetList
 * Song search/filter in list
@@ -42,11 +30,12 @@ An open source band management application in Rails
 * Google Calendar integration (bookings/availability synced to shared calendar)
 * Automatically create a YouTube Playlist from a SetList
 * Manage recordings on a linked SoundCloud account
+* Manage Stage Plans, and notes for FOH sound desk
 
 ## Development Links
 https://github.com/pcreux/csv-importer
 https://github.com/seyhunak/twitter-bootstrap-rails
 https://material.io/tools/icons/
 https://fontawesome.com/v4.7.0/icons/
-ngrok local log panel http://localhost:4040
+ngrok local log panel http://localhost:4040  
 mailcatcher
