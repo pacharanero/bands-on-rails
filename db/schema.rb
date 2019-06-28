@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_110938) do
+ActiveRecord::Schema.define(version: 2019_06_26_215737) do
 
   create_table "gigs", force: :cascade do |t|
     t.integer "venue_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_06_25_110938) do
     t.boolean "paid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.datetime "date"
     t.index ["set_list_id"], name: "index_gigs_on_set_list_id"
     t.index ["venue_id"], name: "index_gigs_on_venue_id"
   end
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_110938) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_maps_url"
   end
 
 end

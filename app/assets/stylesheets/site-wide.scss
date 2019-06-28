@@ -2,14 +2,18 @@ body {
   background-color: #fff;
   color: #333;
   margin: 33px;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Noto Sans', verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
   line-height: 18px;
 }
 
+h1 {
+  font-family: 'Indie Flower';
+}
+
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Noto Sans', verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
   line-height: 18px;
 }
 

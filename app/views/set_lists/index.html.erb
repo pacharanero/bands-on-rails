@@ -23,6 +23,7 @@
       <th>Tags</th>
       <th>Songs</th>
       <th>Created</th>
+      <th>Updated</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -33,7 +34,8 @@
         <td><%= set_list.notes %></td>
         <td><%= set_list.tags %></td>
         <td><%= set_list.songs.count %></td>
-        <td><%=l set_list.created_at %></td>
+        <td><%= time_ago_in_words(set_list.created_at) + " ago" %></td>
+        <td><%= time_ago_in_words(set_list.updated_at) + " ago" %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       set_list_path(set_list), :class => 'btn btn-default btn-xs' %>

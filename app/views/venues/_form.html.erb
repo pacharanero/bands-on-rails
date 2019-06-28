@@ -30,6 +30,16 @@
     <%=f.error_span(:location) %>
   </div>
   <div class="form-group">
+    <%= f.label :google_maps_url, class: "col-lg-2 control-label" do %>
+      <%= content_tag(:i, "map", class: "material-icons") %>
+      <%= t(:google_maps_url) %>
+    <% end %>
+    <div class="col-lg-10">
+      <%= f.text_field :google_maps_url, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:google_maps_url) %>
+  </div>
+  <div class="form-group">
     <%= f.label :notes, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :notes, :class => 'form-control' %>

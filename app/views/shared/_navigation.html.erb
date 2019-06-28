@@ -1,5 +1,4 @@
-<%= nav_bar fixed: :top, brand: "Bands On Rails", responsive: true do %>
-
+<%= nav_bar fixed: :top, brand: fa_icon('volume-up', text: t(:brand)), responsive: true, class: "navbar navbar-dark bg-primary" do %>
   <%= menu_group do %>
     <% if current_user %>
     <%= menu_item "Home", root_path %>
@@ -8,24 +7,28 @@
     <%= menu_item "Set Lists", set_lists_path %>
     <%= menu_item "Gigs", gigs_path %>
     <%= menu_item "Venues", venues_path %>
+    <%= menu_item "About", venues_path %>
     <% end %>
   <% end %>
 
   <%= menu_group pull: :right do %>
     <% if current_user %>
-      <div class="dropdown">
+      <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img class="avatar" src="<%= gravatar_url(current_user) %>">
           <%= current_user.username %>
         </a>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= menu_item 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= menu_item "Gigs", gigs_path %>
+          <%= menu_item "Venues", venues_path %>
+          <%= menu_item "About", venues_path %>
         </div>
       </div>
+    <% else %>
+      <%= menu_item "Sign Up", new_user_registration_path %>
+      <%= menu_item "Log in", new_user_session_path %>
     <% end %>
   <% end %>
-
-
-
 <% end %>

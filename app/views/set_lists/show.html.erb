@@ -8,6 +8,8 @@
 <dl class="dl-horizontal">
   <dt><strong>Notes:</strong></dt><dd><%= @set_list.notes %></dd>
   <dt><strong>Tags:</strong></dt><dd><%= @set_list.tags %></dd>
+  <dt><strong>Created:</strong></dt><dd><%= time_ago_in_words(@set_list.created_at) + " ago" %></dd>
+  <dt><strong>Updated:</strong></dt><dd><%= time_ago_in_words(@set_list.updated_at) + " ago" %></dd>
 </dl>
 
 <!-- set list songs -->

@@ -1,14 +1,16 @@
 <%- model_class = Venue -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= @venue.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dt><strong><%= t('.name') %>:</strong></dt>
   <dd><%= @venue.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+  <dt><strong><%= t('.location') %>:</strong></dt>
   <dd><%= @venue.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+  <dt><strong><%= t(:google_maps_url) %>:</strong></dt>
+  <dd><%= link_to 'Map', @venue.google_maps_url, target: :_blank %></dd>
+  <dt><strong><%= t('.notes') %>:</strong></dt>
   <dd><%= @venue.notes %></dd>
 </dl>
 

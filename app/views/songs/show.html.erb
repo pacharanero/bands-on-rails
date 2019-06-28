@@ -17,10 +17,10 @@
   <dd><%= @song.bpm %></dd>
 
   <dt><strong>Video URL:</strong></dt>
-  <dd><%= link_to truncate(@song.video_url, length:40), @song.video_url %></dd>
+  <dd><%= link_to truncate(@song.video_url, length:40), @song.video_url, target: :_blank %></dd>
 
   <dt><strong>Chart URL:</strong></dt>
-  <dd><%= link_to truncate(@song.chart_url, length:40), @song.chart_url %></dd>
+  <dd><%= link_to truncate(@song.chart_url, length:40), @song.chart_url, target: :_blank %></dd>
 
   <dt><strong>Performance Notes:</strong></dt>
   <dd><%= @song.performance_notes %></dd>

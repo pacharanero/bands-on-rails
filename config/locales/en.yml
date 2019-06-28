@@ -30,4 +30,42 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  brand: "Bands On Rails"
+  gigs:
+    index:
+      title: "Gigs"
+    show:
+      title: "Gig details"
+  songs:
+    index:
+      title: "Repertoire"
+      new: "Add a song to repertoire"
+  venues:
+    index:
+      title: "Venues"
+    show:
+      name: "Name"
+      location: "Location"
+      notes: "Notes"
+  google_maps_url: "Map Link"
+
+  breadcrumbs:
+    application:
+      root: "Index"
+    pages:
+      pages: "Pages"
+  helpers:
+    actions: "Actions"
+    links:
+      back: "Back"
+      cancel: "Cancel"
+      confirm: "Are you sure?"
+      destroy: "Delete"
+      new: "New"
+      edit: "Edit"
+      show: "View"
+    titles:
+      edit: "Edit %{model}"
+      save: "Save %{model}"
+      new: "New %{model}"
+      delete: "Delete %{model}"

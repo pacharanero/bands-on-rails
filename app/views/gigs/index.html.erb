@@ -1,30 +1,39 @@
 <%- model_class = Gig -%>
+
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>
+    <i class="material-icons">date_range</i>
+    <%=t '.title' %>
+  </h1>
 </div>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:venue_id) %></th>
-      <th><%= model_class.human_attribute_name(:set_list_id) %></th>
-      <th><%= model_class.human_attribute_name(:notes) %></th>
-      <th><%= model_class.human_attribute_name(:fee) %></th>
-      <th><%= model_class.human_attribute_name(:paid) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Gig ID</th>
+      <th>Gig Name/Reference</th>
+      <th>Gig Date</th>
+      <th>Venue</th>
+      <th>Set List</th>
+      <th>Notes</th>
+      <th>Fee</th>
+      <th>Paid?</th>
+      <th>Created</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @gigs.each do |gig| %>
       <tr>
         <td><%= link_to gig.id, gig_path(gig) %></td>
+        <td><%= link_to gig.name, gig_path(gig) %></td>
+        <td><%= gig.date %></td>
         <td><%= gig.venue_id %></td>
         <td><%= gig.set_list_id %></td>
         <td><%= gig.notes %></td>
         <td><%= gig.fee %></td>
         <td><%= gig.paid %></td>
-        <td><%=l gig.created_at %></td>
+        <td><%= time_ago_in_words(gig.created_at) + " ago" %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       gig_path(gig), :class => 'btn btn-default btn-xs' %>

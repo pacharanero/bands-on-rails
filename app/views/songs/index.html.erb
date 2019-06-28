@@ -1,18 +1,19 @@
 <%- model_class = Song -%>
 
-<div class="page-header container">
+<div class="page-header">
   <div class="row">
-    <div class="col-md-9">
-      <h1>Repertoire</h1>
+    <div class="col-lg-9">
+      <h1>
+        <%= fa_icon('play-circle') %>
+        <%=t '.title' %>
+      </h1>
       <!-- count of number of songs -->
       <h3><%= @songs.count %> Songs </h3>
     </div>
 
     <!-- action group for song repertoire -->
-    <div class="col-md-3 pull-right">
-      <%= link_to t('.new', :default => t("Add a song to repertoire")),
-        new_song_path,
-        :class => 'btn btn-success' %>
+    <div class="col-lg-3">
+      <%= link_to fa_icon('plus-circle', text: t('.new') ), new_song_path, :class => 'btn btn-success' %>
     </div>
   </div>
 </div>

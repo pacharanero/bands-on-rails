@@ -1,14 +1,14 @@
 <!-- song listing partial -->
 
-<table class="table table-striped">
+<table class="song-list table table-striped">
   <thead>
     <tr>
       <th>Title</th>
       <th>Key</th>
       <th>Singer</th>
       <th>BPM</th>
-      <th>Video URL</th>
-      <th>Chart URL</th>
+      <th>Video</th>
+      <th>Chart</th>
       <th>Performance Notes</th>
       <th>Duration</th>
       <th>Genre</th>
@@ -25,14 +25,21 @@
         <td><%= song.key %></td>
         <td><%= song.singer %></td>
         <td><%= song.bpm %></td>
-        <td><%= link_to truncate(song.video_url, length:20), song.video_url, target: :_blank %></td>
-        <td><%= link_to truncate(song.chart_url, length:20), song.chart_url, target: :_blank %></td>
+        <td>
+          <% if song.video_url %>
+            <%= link_to fa_icon('youtube'), song.video_url, target: :_blank %>
+          <% end %>
+        </td>
+        <td>
+          <% if song.chart_url %>
+            <%= link_to fa_icon('align-justify'), song.chart_url, target: :_blank %></td>
+          <% end %>
         <td><%= song.performance_notes %></td>
         <td><%= song.duration %></td>
         <td><%= song.genre %></td>
         <td><%= song.tags %></td>
-        <td><%= song.created_at %></td>
-        <td><%= song.updated_at %></td>
+        <td><%= time_ago_in_words(song.created_at) + " ago" %></td>
+        <td><%= time_ago_in_words(song.updated_at) + " ago" %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       song_path(song), :class => 'btn btn-default btn-xs' %>

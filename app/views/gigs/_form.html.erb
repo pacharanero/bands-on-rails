@@ -16,16 +16,31 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :venue_id, :class => 'control-label col-lg-2' %>
+    <%= f.label 'Gig Name/Reference', :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :venue_id, :class => 'form-control' %>
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Date', :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.datetime_field :date, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:date) %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Venue', :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select(:venue_id, Venue.all, :id, :name, {prompt: true}, {class: 'form-control'} ) %>
     </div>
     <%=f.error_span(:venue_id) %>
   </div>
   <div class="form-group">
-    <%= f.label :set_list_id, :class => 'control-label col-lg-2' %>
+    <%= f.label 'Set List', :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :set_list_id, :class => 'form-control' %>
+      <%= f.collection_select(:set_list_id, SetList.all, :id, :title, {prompt: true},
+       {class: 'form-control'} ) %>
     </div>
     <%=f.error_span(:set_list_id) %>
   </div>

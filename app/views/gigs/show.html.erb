@@ -1,18 +1,25 @@
 <%- model_class = Gig -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1>
+    <i class="material-icons">date_range</i>
+    <%= t('.title') %>
+  </h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:venue_id) %>:</strong></dt>
+<dl class="dl-horizontal col-md-8">
+  <dt><strong><%= t('.name') %>:</strong></dt>
+  <dd><%= @gig.name %></dd>
+  <dt><strong><%= t('.date') %>:</strong></dt>
+  <dd><%= @gig.date %></dd>
+  <dt><strong><%= t('.venue_id') %>:</strong></dt>
   <dd><%= @gig.venue_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:set_list_id) %>:</strong></dt>
+  <dt><strong><%= t('.set_list_id') %>:</strong></dt>
   <dd><%= @gig.set_list_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+  <dt><strong><%= t('.notes') %>:</strong></dt>
   <dd><%= @gig.notes %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:fee) %>:</strong></dt>
+  <dt><strong><%= t('.fee') %>:</strong></dt>
   <dd><%= @gig.fee %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:paid) %>:</strong></dt>
+  <dt><strong><%= t('.paid') %>:</strong></dt>
   <dd><%= @gig.paid %></dd>
 </dl>
 
